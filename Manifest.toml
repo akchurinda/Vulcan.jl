@@ -1,6 +1,15 @@
 # This file is machine-generated - editing it directly is not advised
 
+julia_version = "1.11.5"
 manifest_format = "2.0"
-project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+project_hash = "3c8903524c009b2e787667e3384bf5a18ca56116"
 
-[deps]
+[[deps.OrderedCollections]]
+git-tree-sha1 = "05868e21324cede2207c6f0f466b4bfef6d5e7ee"
+uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
+version = "1.8.1"
+
+[[deps.Reexport]]
+git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
+uuid = "189a3867-3050-52da-a836-e630ba90ab69"
+version = "1.2.2"

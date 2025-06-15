@@ -1,0 +1,7 @@
+name = "Vulcan"
+uuid = "88b3b2ed-56ea-4eac-b1de-e42ac45953c8"
+authors = ["Damir Akchurin <akchurinda@gmail.com>"]
+version = "0.1.0"
+
+[weakdeps]
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"

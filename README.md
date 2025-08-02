@@ -4,7 +4,7 @@
 
 # Installation
 
-To install `Vulcan.jl`, , type `]` in Julia REPL to enter the built-in Julia package manager and execute the following command:
+To install `Vulcan.jl`, type `]` in Julia REPL to enter the built-in Julia package manager and execute the following command:
 
 ```
 pkg> add Vulcan

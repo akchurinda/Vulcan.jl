@@ -12,4 +12,4 @@ pkg> add Vulcan
 
 # License
 
-`Vulcan.jl` is distributed under the MIT license. More information can be found in the LICENSE.md file.
+`Vulcan.jl` is distributed under the [MIT license](https://en.wikipedia.org/wiki/MIT_License). More information can be found in the [`LICENSE.md`](https://github.com/akchurinda/Vulcan.jl/blob/main/LICENSE.md) file.

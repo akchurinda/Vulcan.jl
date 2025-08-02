@@ -1,6 +1,6 @@
 # Description
 
-`Vulcan.jl` is a general-purpose package for structural analysis.
+`Vulcan.jl` is an automatically differentiable structural analysis package purely written in the Julia programming language.
 
 # Installation
 

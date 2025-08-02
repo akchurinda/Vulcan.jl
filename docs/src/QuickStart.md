@@ -1,7 +1,7 @@
 # Quick Start
 
 ```@example quick_start
-using Vulcan
+using Titan
 ```
 
 ```@example quick_start

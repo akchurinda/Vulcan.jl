@@ -1,9 +1,9 @@
-module VulcanMakieExtension
+module TitanMakieExtension
 using Makie
-using Vulcan
-import Vulcan: plotmodel, plotmodel!
+using Titan
+import Titan: plotmodel, plotmodel!
 
-@recipe PlotModel (vulcan_model, ) begin
+@recipe PlotModel (titan_model, ) begin
     node_color = :red
     node_strokecolor = :black
     node_strokewidth = 1
@@ -20,7 +20,7 @@ end
 Makie.preferred_axis_type(::PlotModel) = Makie.Axis
 
 function Makie.plot!(plotmodel::PlotModel)
-    model = plotmodel.vulcan_model[]
+    model = plotmodel.titan_model[]
     
     elements = model.elements
     if !isempty(model.elements)

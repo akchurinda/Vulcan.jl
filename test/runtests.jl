@@ -1,5 +1,5 @@
 using Test
-using Vulcan
+using Titan
 
 @testset "Test material library" begin
     

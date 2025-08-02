@@ -1,4 +1,4 @@
-module Vulcan
+module Titan
 using OrderedCollections
 using StaticArrays
 using StyledStrings

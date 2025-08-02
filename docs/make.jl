@@ -1,10 +1,10 @@
 push!(LOAD_PATH, "../src/")
 
 using Documenter
-using Vulcan
+using Titan
 
 makedocs(
-    sitename = "Vulcan.jl",
+    sitename = "Titan.jl",
     authors  = "Damir Akchurin",
     pages    = [
         "Home"        => "index.md",
@@ -16,4 +16,4 @@ makedocs(
             "Loads"     => "Loads.md"]])
 
 deploydocs(
-    repo = "github.com/akchurinda/Vulcan.jl")
+    repo = "github.com/akchurinda/Titan.jl")

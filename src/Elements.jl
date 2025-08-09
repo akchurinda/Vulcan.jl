@@ -4,8 +4,6 @@ end
 
 abstract type AbstractElement{NIT <: Real, NJT <: Real, MT <: Real, ST <: Real, OT <: Real} end
 
-const ELEMENT_LIBRARY = ["TrussElement", "EulerBernoulliBeamColumnElement", "TimoshenkoBeamColumnElement"]
-
 struct TrussElement{NIT <: Real, NJT <: Real, MT <: Real, ST <: Real, OT <: Real} <: AbstractElement{NIT, NJT, MT, ST, OT}
     "Node (``i``) of the element"
     node_i::Node{NIT}
@@ -17,37 +15,7 @@ struct TrussElement{NIT <: Real, NJT <: Real, MT <: Real, ST <: Real, OT <: Real
     section::AbstractSection{ST}
     "Orientation vector that defines the local coordinate system of the element"
     orientation::Vector{OT}
-    "State of the element"
-    # state::ElementState
-end
-
-struct EulerBernoulliBeamColumnElement{NIT <: Real, NJT <: Real, MT <: Real, ST <: Real, OT <: Real} <: AbstractElement{NIT, NJT, MT, ST, OT}
-    "Node (``i``) of the element"
-    node_i::Node{NIT}
-    "Node (``j``) of the element"
-    node_j::Node{NJT}
-    "Material of the element"
-    material::AbstractMaterial{MT}
-    "Section of the element"
-    section::AbstractSection{ST}
-    "Orientation vector that defines the local coordinate system of the element"
-    orientation::Vector{OT}
-    "State of the element"
-    # state::ElementState
-end
-
-struct TimoshenkoBeamColumnElement{NIT <: Real, NJT <: Real, MT <: Real, ST <: Real, OT <: Real} <: AbstractElement{NIT, NJT, MT, ST, OT}
-    "Node (``i``) of the element"
-    node_i::Node{NIT}
-    "Node (``j``) of the element"
-    node_j::Node{NJT}
-    "Material of the element"
-    material::AbstractMaterial{MT}
-    "Section of the element"
-    section::AbstractSection{ST}
-    "Orientation vector that defines the local coordinate system of the element"
-    orientation::Vector{OT}
-    "State of the element"
+    # "State of the element"
     # state::ElementState
 end
 
@@ -86,5 +54,37 @@ function compute_k_e_l(element::TrussElement)
 end
 
 function compute_k_g_l(element::TrussElement)
-    k_g_l = SMatrix{6, 6}(0)
+    k_g_l = SMatrix{6, 6}(zeros(6, 6))
+
+    return k_g_l
+end
+
+struct EulerBernoulliBeamColumnElement{NIT <: Real, NJT <: Real, MT <: Real, ST <: Real, OT <: Real} <: AbstractElement{NIT, NJT, MT, ST, OT}
+    "Node (``i``) of the element"
+    node_i::Node{NIT}
+    "Node (``j``) of the element"
+    node_j::Node{NJT}
+    "Material of the element"
+    material::AbstractMaterial{MT}
+    "Section of the element"
+    section::AbstractSection{ST}
+    "Orientation vector that defines the local coordinate system of the element"
+    orientation::Vector{OT}
+    # "State of the element"
+    # state::ElementState
+end
+
+struct TimoshenkoBeamColumnElement{NIT <: Real, NJT <: Real, MT <: Real, ST <: Real, OT <: Real} <: AbstractElement{NIT, NJT, MT, ST, OT}
+    "Node (``i``) of the element"
+    node_i::Node{NIT}
+    "Node (``j``) of the element"
+    node_j::Node{NJT}
+    "Material of the element"
+    material::AbstractMaterial{MT}
+    "Section of the element"
+    section::AbstractSection{ST}
+    "Orientation vector that defines the local coordinate system of the element"
+    orientation::Vector{OT}
+    # "State of the element"
+    # state::ElementState
 end

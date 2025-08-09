@@ -19,52 +19,31 @@ function node!(model::Model, id::Int, x::Real, y::Real, z::Real)
     return model
 end
 
-function material!(model::Model, id::Int, type::String, properties...)
-    if type ∉ MATERIAL_LIBRARY
-        closest, _ = findnearest(type, MATERIAL_LIBRARY, Levenshtein())
-        error("""
-            Material type "$(type)" is not supported. Did you mean $(closest)?
-            Supported material types are: $(MATERIAL_LIBRARY).""")
-    end
-
+function material!(model::Model, id::Int, type::Type{D}, properties...) where {D <: AbstractMaterial}
     if haskey(model.materials, id)
         error("Material with ID $(id) already exists.")
     end
 
-    material = eval(Symbol(type))(properties...)
+    material = type(properties...)
 
     model.materials[id] = material
 
     return model
 end
 
-function section!(model::Model, id::Int, type::String, properties...)
-    if type ∉ SECTION_LIBRARY
-        closest, _ = findnearest(type, SECTION_LIBRARY, Levenshtein())
-        error("""
-            Section type "$(type)" is not supported. Did you mean $(closest)?
-            Supported section types are: $(SECTION_LIBRARY).""")
-    end
-
+function section!(model::Model, id::Int, type::Type{D}, properties...) where {D <: AbstractSection}
     if haskey(model.sections, id)
         error("Section with ID $(id) already exists.")
     end
 
-    section = eval(Symbol(type))(properties...)
+    section = type(properties...)
 
     model.sections[id] = section
 
     return model
 end
 
-function element!(model::Model, id::Int, type::String, node_i_id::Int, node_j_id::Int, material_id::Int, section_id::Int; orientation::Vector{<:Real} = [1, 0, 0])
-    if type ∉ ELEMENT_LIBRARY
-        closest, _ = findnearest(type, ELEMENT_LIBRARY, Levenshtein())
-        error("""
-            Element type "$(type)" is not supported. Did you mean $(closest)?
-            Supported element types are: $(ELEMENT_LIBRARY).""")
-    end
-
+function element!(model::Model, id::Int, type::Type{D}, node_i_id::Int, node_j_id::Int, material_id::Int, section_id::Int; orientation::Vector{<:Real} = [1, 0, 0]) where {D <: AbstractElement}
     if haskey(model.elements, id)
         error("Element with ID $(id) already exists.")
     end
@@ -81,7 +60,7 @@ function element!(model::Model, id::Int, type::String, node_i_id::Int, node_j_id
     material = model.materials[material_id]
     section = model.sections[section_id]
 
-    element = eval(Symbol(type))(node_i, node_j, deepcopy(material), deepcopy(section), orientation)
+    element = type(node_i, node_j, deepcopy(material), deepcopy(section), orientation)
 
     model.elements[id] = element
 

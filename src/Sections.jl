@@ -1,7 +1,5 @@
 abstract type AbstractSection{T <: Real} end
 
-const SECTION_LIBRARY = ["GeneralSection", "RectangularSection", "CircularSection", "ISection"]
-
 struct GeneralSection{T <: Real} <: AbstractSection{T}
     "Gross cross-sectional area, ``A_{g}``"
     A_g::T

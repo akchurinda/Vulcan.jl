@@ -1,7 +1,5 @@
 abstract type AbstractMaterial{T <: Real} end
 
-const MATERIAL_LIBRARY = ["ElasticMaterial", "ElasticPerfectlyPlasticMaterial"]
-
 struct ElasticMaterial{T <: Real} <: AbstractMaterial{T}
     "Young's modulus, ``E``"
     E::T

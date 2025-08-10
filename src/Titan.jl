@@ -5,8 +5,8 @@ using StyledStrings
 using StringDistances
 
 export Node
-export AbstractMaterial, ElasticMaterial
-export AbstractSection, GeneralSection, RectangularSection, CircularSection
+export AbstractMaterial, ElasticMaterial, ElasticPerfectlyPlasticMaterial
+export AbstractSection, GeneralSection, RectangularSection, CircularSection, ISection
 export AbstractElement, TrussElement, EulerBernoulliBeamColumnElement, TimoshenkoBeamColumnElement
 export Model
 export node!, material!, section!, element!
@@ -17,7 +17,7 @@ include("Nodes.jl")
 include("Materials.jl")
 include("Sections.jl")
 include("Elements.jl")
-include("Models.jl")
+include("Model.jl")
 
 include("Utilities/PrettyPrinting.jl")
 include("Utilities/Plotting.jl")

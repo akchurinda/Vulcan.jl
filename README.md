@@ -1,6 +1,6 @@
 # Description
 
-`Titan.jl` is a general-purpose package for structural analysis.
+`Titan.jl` is a package for structural analysis with [automatic differentiation capabilities](https://en.wikipedia.org/wiki/automatic_differentiation) written purely in the [Julia programming language](https://julialang.org).
 
 # Installation
 

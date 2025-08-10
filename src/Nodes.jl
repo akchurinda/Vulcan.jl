@@ -1,7 +1,16 @@
 mutable struct NodeState
+    U::Vector{<:Real}
+    F::Vector{<:Real}
 
+    # Constructor:
+    NodeState() = new()
 end
 
+"""
+    Node
+
+A three-dimensional node with coordinates ``(x, y, z)``.
+"""
 struct Node{T <: Real}
     "``x``-coordinate"
     x::T

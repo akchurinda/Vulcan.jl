@@ -1,0 +1,3 @@
+struct LinearGeometricTransformation <: AbstractGeometricTransformation
+
+end

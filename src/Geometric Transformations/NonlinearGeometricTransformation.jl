@@ -1,0 +1,3 @@
+struct NonlinearGeometricTransformation <: AbstractGeometricTransformation
+
+end

@@ -73,7 +73,7 @@ end
 
 A function that adds an element of the given type to the model with the given ID, nodes, material, section, and orientation.
 """
-function element!(model::Model, id::Int, type::Type{D}, node_i_id::Int, node_j_id::Int, material_id::Int, section_id::Int; orientation::Vector{<:Real} = [1, 0, 0]) where {D <: AbstractElement}
+function element!(model::Model, id::Int, type::Type{D}, node_i_id::Int, node_j_id::Int, material_id::Int, section_id::Int; ω::Real = 0) where {D <: AbstractElement}
     # Check if the element ID already exists in the model and if the nodes, material, and section exist:
     haskey(model.elements, id) && throw(ArgumentError("Element with ID $(id) already exists."))
     haskey(model.nodes, node_i_id) || throw(ArgumentError("Node with ID $(node_i_id) does not exist."))
@@ -92,7 +92,8 @@ function element!(model::Model, id::Int, type::Type{D}, node_i_id::Int, node_j_i
     section = model.sections[section_id]
 
     # Create the element with the specified type, nodes, material, section, and orientation:
-    element = type(node_i, node_j, deepcopy(material), deepcopy(section), orientation)
+    element = type(node_i, node_j, deepcopy(material), deepcopy(section), ω, ElementState())
+    initstate!(element)
 
     # Add the element to the model:
     model.elements[id] = element

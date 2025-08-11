@@ -3,6 +3,7 @@ using OrderedCollections
 using StaticArrays
 using StyledStrings
 using StringDistances
+using LinearAlgebra
 
 export Node
 export AbstractMaterial, ElasticMaterial, ElasticPerfectlyPlasticMaterial
